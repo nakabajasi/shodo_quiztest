@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR Viewer</title>
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #111;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100vh;
+      background-color: #111;
+    }
+
+    .ar-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 18px 32px;
+      border: none;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #111111;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+    }
+
+    .ar-button:active {
+      transform: translate(-50%, -50%) scale(0.97);
+    }
+  </style>
+</head>
+
+<body>
+
+  <model-viewer
+    src="./model.glb"
+    ios-src="./model.usdz"
+    alt="AR model"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    exposure="1"
+    environment-image="neutral">
+
+    <button slot="ar-button" class="ar-button" type="button">
+      正道官衙遺跡で働く役人を撮影しよう！
+    </button>
+
+  </model-viewer>
+
+</body>
+</html>
